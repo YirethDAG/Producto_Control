@@ -1,0 +1,76 @@
+﻿@model IEnumerable<Prueba_Control.Models.Producto>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Productos</h1>
+
+<p>
+    <button type="button" class="btn btn-outline-light">
+        <a asp-action="Create">Create New</a>
+        </button>
+    
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Descripcion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Precio)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Fechacreacion)
+            </th>
+            @* <th>
+            @Html.DisplayNameFor(model => model.Estado)
+            </th> *@
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Descripcion)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Precio)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Fechacreacion)
+                </td>
+                @* <td>
+            @Html.DisplayFor(modelItem => item.Estado)
+            </td> *@
+                <td>
+                    <button type="button" class="btn btn-outline-light">
+                        <a asp-action="Img" asp-route-id="@item.IdProducto">Imagen</a>
+                        </button>
+                    |
+                    <button type="button" class="btn btn-outline-light">
+                        <a asp-action="Edit" asp-route-id="@item.IdProducto">Edit</a>
+                    </button>
+                     |
+                    <button type="button" class="btn btn-outline-light">
+                        <a asp-action="Details" asp-route-id="@item.IdProducto">Details</a>
+                    </button>
+                     |
+                    <button type="button" class="btn btn-outline-light">
+                        <a asp-action="Delete" asp-route-id="@item.IdProducto">Delete</a>
+                    </button>
+                    
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

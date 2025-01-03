@@ -1,0 +1,48 @@
+﻿@model Prueba_Control.Models.Imagenesproducto
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Imagenesproducto</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create" method="post" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            @* <div class="form-group">
+                <label asp-for="Nombre" class="control-label"></label>
+                <input asp-for="Nombre" class="form-control" />
+                <span asp-validation-for="Nombre" class="text-danger"></span>
+            </div> *@
+            @* <div class="form-group">
+                <label asp-for="Estado" class="control-label"></label>
+                <input asp-for="Estado" class="form-control" />
+                <span asp-validation-for="Estado" class="text-danger"></span>
+            </div> *@
+            <div class="form-group">
+                <label asp-for="ImagenExt" class="control-label" ></label>
+                @* <input asp-for="ImagenExt" class="form-control" /> *@
+                @* <input asp-for="ImagenExt" type="file" class="form-control" id="ImagenExt" accept=".jpg"> *@
+                @* <input asp:FileUpload id="ImagenExt" runat="ImagenExt"/> *@
+                @* <span asp-validation-for="ImagenExt" class="text-danger" accept=".jpg"></span> *@
+                @* <span asp-validation-for="ImagenExt" class="figure-img" accept=".jpg"></span> *@
+                <input type="file" name="file" />
+            </div>
+            
+            <div class="form-group">
+                <input type="submit" value="Create Imagen" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
